@@ -1,0 +1,12 @@
+class Solution {
+public:
+    int findPeakElement(vector<int>& nums) {
+         int x=*max_element(nums.begin(),nums.end());
+         auto it =find (nums.begin(), nums.end(), x);
+    if (it != nums.end())
+    return it - nums.begin();//counting from beginning (it will return nums,but we want index)
+
+    else 
+    return -1;
+    }
+};
