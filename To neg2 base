@@ -1,0 +1,15 @@
+class Solution {
+public:
+    string baseNeg2(int N) {
+        string ret = "";
+      if(N == 0) return "0";
+      while(N){
+         int rem = N % (-2);
+         N /= -2;
+         if(rem < 0) rem += 2, N++;
+         ret += to_string(rem);
+      }
+      reverse(ret.begin(), ret.end());
+      return ret;
+   }
+};
