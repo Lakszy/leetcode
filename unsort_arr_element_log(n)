@@ -1,0 +1,39 @@
+#include <bits/stdc++.h>
+using namespace std;
+int binary_s(vector<int>v){
+    int n=v.size();
+    int l=0,h=n-1;
+    while(l<=h){
+        int mid=(l+h)/2;
+        if (v[mid]>v[mid-1] && v[mid]>v[mid+1])
+        return v[mid] ;
+        if (v[mid-1]>v[mid])
+        h=mid-1;//moves always towrards the greater side
+        else//  since we have to find the peak...
+        l=mid+1;
+//---------------------------------------------------------------//
+        //now we have to check for the corner cases 
+        //mid at starting i.e. mid ==0
+        //mid at end i.e. mid == n-1
+        
+        if (mid==0){
+            if (v[1]>v[0])
+            return v[1];
+            else 
+            return v[0];
+        }
+        else if (mid==n-1){
+            if (v[n-1]>v[n-2])
+            return v[n-1];
+            else 
+            return v[n-2];
+        }
+    }
+}
+int main() {
+    vector<int>v1 = {8, 9, 10, 12, 15};
+   
+    cout<<binary_s(v1);
+
+    return 0;
+}
